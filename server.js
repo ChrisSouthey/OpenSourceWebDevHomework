@@ -66,13 +66,6 @@ const todos = new mongoose.Schema({}, { strict: false });
 const Todos = mongoose.model('todos', todos);
 
 //Routes to stuff
-app.get("/api/todo/:id", async (req, res) => {
-    console.log(req.params.id);
-    const tinfo = req.params.id;
-    const todoInfo = await Todos.findOne({id: Number(tinfo)});
-    console.log(todoInfo);
-    res.json(todoInfo);
-});
 
 app.get("/api/todo", async (req, res) => {
     const data = await Todos.find();
